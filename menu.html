@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book - Menu</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <div id="navbar">
+            <a href="home3.html">Home</a>
+            <a href="about_us3.html">About</a>
+            <a href="#" class="active">Menu</a>
+            <a href="sign_in3.html">Sign Out</a>
+        </div>
+    </header>
+    <main>
+        <h1>Recipe Menu</h1>
+        <div class="main-layout">
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <ul>
+                    <li onclick="filterCategory('all')">All</li>
+                    <li onclick="filterCategory('italian')">Italian</li>
+                    <li onclick="filterCategory('indian')">Indian</li>
+                    <li onclick="filterCategory('mexican')">Mexican</li>
+                    <li onclick="filterCategory('chinese')">Chinese</li>
+                    <li onclick="filterCategory('western')">Western</li>
+                    <li onclick="filterCategory('non_veg')">Non Vegetarian</li>
+                    <li onclick="filterCategory('veg')">Vegetarian</li>
+                    <li onclick="filterCategory('thai')">Thai</li>
+                </ul>
+                <button onclick="showAddRecipeForm()" class="add-recipe-btn">+ Add Recipe</button>
+                <div id="addRecipeModal" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%); background:white; padding:20px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.3); z-index:1000;">
+                    <h2>Add New Recipe</h2>
+                    <input type="text" id="newRecipeName" placeholder="Recipe Name"><br><br>
+                    <input type="text" id="newRecipeImage" placeholder="Image URL"><br><br>
+                    <textarea id="newRecipeDescription" placeholder="Ingredients" rows="3" cols="40"></textarea><br><br>
+                    <textarea id="newRecipeInstructions" placeholder="Instructions..." rows="5" cols="40"></textarea><br><br>
+                    <label for="newRecipeCategory">Category:</label><br>
+                    <select id="newRecipeCategory">
+                        <option value="indian">Indian</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="italian">Italian</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="thai">Thai</option>
+                        <option value="western">Western</option>
+                        <option value="veg">Vegetarian</option>
+                        <option value="non_veg">Non Vegetarian</option>
+                    </select><br><br>
+                    <button onclick="addNewRecipe()">Add Recipe</button>
+                    <button onclick="closeAddRecipeForm()">Cancel</button>
+                </div>
+            </aside>
+
+            <div class="content">
+                <div class="filters">
+                    <input type="text" id="searchInput" placeholder="Search for a recipe..." onkeyup="searchRecipes()">
+                </div>
+                <div class="recipe-container" id="recipeContainer">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="menu.js"></script>
+    <script>
+        const recipes = [
+            { name: 'Spaghetti Carbonara', description: 'Classic Italian pasta dish with egg and cheese', kitchen: ['italian', 'veg', 'western'], img: 'spaghetti.jpg', link: 'spaghetti.html' },
+            { name: 'Veggie Tacos', description: 'Traditional Mexican dish with tortillas and various fillings', kitchen: ['mexican', 'veg', 'western'], img: 'tacos.jpg', link: 'veg_taco.html' },
+            { name: 'Butter Chicken', description: 'Popular Indian dish with creamy tomato sauce', kitchen: ['indian', 'non_veg'], img: 'butter_chicken.jpg', link: 'butter_chicken.html' },
+            { name: 'Pizza Margherita', description: 'Traditional Italian pizza with fresh mozzarella', kitchen: ['italian', 'veg', 'western'], img: 'pizza.jpg', link: 'margharita_pizza.html' },
+            // Add more recipes here
+        ];
+
+        // Function to display recipes dynamically
+        function displayRecipes(filteredRecipes) {
+            const container = document.getElementById('recipeContainer');
+            container.innerHTML = ''; // Clear previous content
+
+            filteredRecipes.forEach(recipe => {
+                const card = document.createElement('div');
+                card.classList.add('recipe-card');
+                card.innerHTML = `
+                    <img src="${recipe.img}" alt="${recipe.name}">
+                    <h3>${recipe.name}</h3>
+                    <p>${recipe.description}</p>
+                    <a href="${recipe.link}" class="button">View Recipe</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Function to search recipes based on the input
+        function searchRecipes() {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const filteredRecipes = recipes.filter(recipe => recipe.name.toLowerCase().includes(searchQuery));
+            displayRecipes(filteredRecipes);
+        }
+
+        // Function to filter recipes by category
+        function filterCategory(category) {
+            const filteredRecipes = category === 'all' ? recipes : recipes.filter(recipe => recipe.kitchen.includes(category));
+            displayRecipes(filteredRecipes);
+        }
+
+        // Initialize the page with all recipes
+        displayRecipes(recipes);
+        function signOut() {
+            localStorage.clear();
+            alert("You have been signed out.");
+            window.location.href = "sign_in3.html";
+        }
+    </script>
+</body>
+</html>

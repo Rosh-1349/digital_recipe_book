@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Recipes</title>
+    <link rel="stylesheet" href="home3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+</head>
+<body>
+    <header>
+        <div class="logo">Recipe Book</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="about_us3.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="sign_in3.html" onclick="signOut()">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Culinary Delights</h1>
+            <p>Explore a world of flavors with our hand-picked recipes.</p>
+            <div class="hero-actions">
+                <button onclick="location.href='#featured-recipes'">See Featured Recipes</button>
+                <div class="surprise-card">
+                    <div class="card-inner">
+                        <div class="card-front">🎲 Surprise Me!</div>
+                        <div class="card-back" onclick="randomRecipe()">Let’s Cook!</div>
+                    </div>
+                </div>                                
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-recipes" id="featured-recipes">
+        <h2>Featured Recipes</h2>
+        <div class="recipe-carousel">
+            <div class="recipe-card">
+                <img src="lasagna.jpg" alt="Classic Lasagna">
+                <h3>Classic Lasagna</h3>
+                <p>A timeless favorite with layers of pasta, rich sauce, and cheese.</p>
+                <button onclick="location.href='lasagna.html'">View Recipe</button>
+            </div>
+            <div class="recipe-card">
+                <img src="pad_thai.jpg" alt="Spicy Pad Thai">
+                <h3>Spicy Pad Thai</h3>
+                <p>A vibrant and flavorful Thai noodle dish.</p>
+                <button onclick="location.href='pad_thai.html'">View Recipe</button>
+            </div>
+            <div class="recipe-card">
+                <img src="decadent_chocolate_cake.jpg" alt="Decadent Chocolate Cake">
+                <h3>Decadent Chocolate Cake</h3>
+                <p>A rich and moist chocolate cake for any celebration.</p>
+                <button onclick="location.href='choc_cake.html'">View Recipe</button>
+            </div>
+        </div>
+        <div class="view-all-recipes">
+            <button onclick="location.href='menu.html'">View All Recipes</button>
+        </div>
+    </section>
+    
+    <section class="browse-categories">
+        <h2>Explore by Category</h2>
+        <div class="categories-grid">
+            <a href="menu.html?category=italian" class="category-item" style="background-image: url('spaghetti.jpg')"> 
+                <h3>Italian</h3>
+            </a>
+            <a href="menu.html?category=mexican" class="category-item" style="background-image: url('lasagna.jpg')">
+                <h3>Mexican</h3>
+            </a>
+            <a href="menu.html?category=indian" class="category-item" style="background-image: url('pav_bhaji.jpg')">
+                <h3>Indian</h3>
+            </a>
+            <a href="menu.html?category=chinese" class="category-item" style="background-image: url('spring_rolls.jpg')">
+                <h3>Chinese</h3>
+            </a>            
+            <a href="menu.html?category=veg" class="category-item" style="background-image: url('dal_makhani.jpg')">
+                <h3>Vegetarian</h3>
+            </a>
+            <a href="menu.html?category=thai" class="category-item" style="background-image: url('TropicalThaiCoconut-TapiocaPudding-TheSpruce.webp')">
+                <h3>Thai</h3>
+            </a>
+            </div>
+    </section>
+
+    <section class="about-us">
+        <div class="about-content">
+            <h2 style="color: gray;">Our Passion for Food</h2>
+            <p>At Recipe book, we believe that cooking should be an enjoyable and rewarding experience. Our mission is to provide you with a diverse collection of reliable and inspiring recipes, making it easy for you to create delicious meals at home. We are a community of food lovers dedicated to sharing our culinary knowledge and passion with you.</p>
+            <button onclick="location.href='about_us3.html'" style="background-color: rgb(41, 41, 181);">Learn More About Us</button>
+        </div>
+        <div class="about-image">
+            <img src="chef.jpg" alt="Chef or Kitchen Scene">
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="cta-content">
+            <h2>Unlock a World of Recipes!</h2>
+            <p>Sign up for our newsletter and never miss a new recipe or cooking tip.</p>
+            <form>
+                <input type="email" placeholder="Your Email Address">
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Foodie Haven</p>
+            <nav>
+                <ul>
+                    <li><a href="#" style="color: aliceblue;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: aliceblue;">Terms of Service</a></li>
+                    <li><a href="#" style="color: aliceblue;">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+      <script>
+          $(document).ready(function () {
+              $('.recipe-carousel').slick({
+                  infinite: true,
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  autoplay: true,
+                  autoplaySpeed: 3000,
+                  dots: true,
+                  responsive: [
+                      {
+                          breakpoint: 1024,
+                          settings: {
+                              slidesToShow: 2,
+                              slidesToScroll: 1
+                          }
+                      },
+                      {
+                          breakpoint: 600,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      }
+                  ]
+              });
+      
+              const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          entry.target.classList.add('revealed');
+                          observer.unobserve(entry.target);
+                      }
+                  });
+              }, { threshold: 0.1 });
+      
+              document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+          });
+          const recipeMap = {
+        "classic lasagna": "lasagna.html",
+        "spicy pad thai": "pad_thai.html",
+        "decadent chocolate cake": "choc_cake.html",
+        "spring roll": "spring_roll.html",
+        "chow mein": "chow_mein.html",
+        "veg burger": "veg_burger.html",
+        "kadhai paneer": "kadhai_paneer.html",
+        "dal makhani": "dal_makhani.html",
+        "naan": "naan.html",
+        "pav bhaji": "pav_bhaji.html",
+        "tropical thai coconut-tapioca pudding": "pudding.html",
+        "easy gluten-free vegan thai fried rice noodles": "rice_noodle.html",
+        "butter chicken": "butter_chicken.html",
+        "pizza margherita": "margharita_pizza.html",
+        "burritos": "chicken_burritos.html",
+        "chicken curry": "chicken_curry.html",
+        "veggie tacos": "veg_taco.html",
+        "chicken tacos": "chicken_tacos.html",
+        "spaghetti carbonara": "spaghetti.html"
+        };
+
+        // Function to select a random recipe and navigate to that page
+        function randomRecipe() {
+        const pages = Object.values(recipeMap);
+        const randomPage = pages[Math.floor(Math.random() * pages.length)];
+        window.location.href = randomPage;
+        }
+
+        // Add event listener to .card-back to trigger surprise recipe
+        document.querySelector(".card-back").addEventListener("click", randomRecipe);
+        function signOut() {
+            localStorage.clear();
+            alert("You have been signed out.");
+            window.location.href = "sign_in3.html";
+        }
+      </script>         
+</body>
+</html>

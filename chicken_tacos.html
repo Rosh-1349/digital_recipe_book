@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe | Chicken Tacos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fdfdfd;
+        }
+
+        header {
+            background: radial-gradient(circle, white, rgb(142, 240, 183));            
+            color: rgb(30, 209, 10);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .recipe-container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .recipe-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .recipe-header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            flex: 1 1 300px;
+        }
+
+        .recipe-header .info {
+            flex: 1 1 300px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .section h2 {
+            color: rgb(62, 240, 136);
+            margin-bottom: 10px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: rgb(70, 246, 143);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: rgb(58, 188, 113);
+        }
+        
+        .btn:hover {
+            background-color: rgb(58, 188, 113);
+        }
+        .trash-bin svg {
+            transition: transform 0.4s ease;
+        }
+
+        .trash-bin .lid {
+            transform-origin: center;
+            transition: transform 0.4s ease;
+        }
+
+        .trash-bin.animate .lid {
+            transform: rotate(-30deg) translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Recipe Book</h1>
+        <p>Your delicious journey starts here!</p>
+    </header>
+
+    <div class="recipe-container">
+        <div class="recipe-header">
+            <img src="chicken_taco.jpg" alt="Chicken Tacos">
+            <div class="info">
+                <h1>Chicken Tacos</h1>
+                <div id="averageRating" style="font-size: 18px; margin: 5px 0; color: #ff9800;">
+                    ⭐ Rating: 0.0
+                </div>
+                <p><strong>Prep Time:</strong> 15 mins<br>
+                <strong>Cook Time:</strong> 20 mins<br>
+                <strong>Serves:</strong> 4</p>
+                <a class="btn" href="#instruction">Start Cooking</a>
+            </div>
+        </div>
+
+        <div class="section" id="instruction">
+            <h2>Ingredients</h2>
+            <ul>
+                <li>500g chicken breast, cut into strips</li>
+                <li>1 packet taco seasoning</li>
+                <li>8 taco shells or soft tortillas</li>
+                <li>1 tablespoon olive oil</li>
+                <li>1 small onion, diced</li>
+                <li>1 cup shredded lettuce</li>
+                <li>1 cup diced tomatoes</li>
+                <li>1/2 cup shredded cheddar cheese</li>
+                <li>1/4 cup sour cream</li>
+                <li>1/4 cup salsa</li>
+                <li>Fresh cilantro (optional)</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Instructions</h2>
+            <ol>
+                <li>In a pan, heat olive oil over medium heat and cook the chicken strips until golden brown and cooked through.</li>
+                <li>Add diced onion to the pan and cook until softened.</li>
+                <li>Stir in the taco seasoning and a little water (as per package instructions), and let it simmer for 5 minutes.</li>
+                <li>While the chicken mixture is cooking, heat the taco shells or tortillas in the oven or microwave.</li>
+                <li>Once the chicken mixture is ready, spoon it into each taco shell.</li>
+                <li>Top with lettuce, diced tomatoes, shredded cheese, sour cream, salsa, and cilantro.</li>
+                <li>Serve immediately and enjoy your chicken tacos!</li>
+            </ol>
+        </div>
+        <div class="section">
+            <h2>Watch the Recipe Video</h2>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+                <iframe 
+                    src="https://www.youtube.com/embed/rX6fHHiRu54?si=TrKRX00QphYE2ckn" 
+                    frameborder="0" 
+                    allowfullscreen 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </iframe>
+            </div>
+        </div>        
+    </div>
+    <div class="recipe-container">
+        <div class="section" id="comments">
+            <h2>Leave a Comment</h2>
+            <form id="commentForm">
+                <div style="margin-bottom: 15px;">
+                    <label for="name">Your Name</label><br>
+                    <input type="text" id="name" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label>Your Rating</label><br>
+                    <div id="star-rating" style="font-size: 24px; color: gold; cursor: pointer;">
+                        <span data-star="1">☆</span>
+                        <span data-star="2">☆</span>
+                        <span data-star="3">☆</span>
+                        <span data-star="4">☆</span>
+                        <span data-star="5">☆</span>
+                    </div>
+                </div>
+    
+                <div style="margin-bottom: 15px;">
+                    <label for="comment">Your Comment</label><br>
+                    <textarea id="comment" rows="4" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc;"></textarea>
+                </div>
+    
+                <button type="submit" class="btn">Post Comment</button>
+            </form>
+    
+            <div id="commentList" style="margin-top: 30px;">
+                <h3>Comments</h3>
+            </div>
+        </div>
+    </div>       
+    <script>
+        let selectedRating = 0;
+        let totalRatings = 0;
+        let numRatings = 0;
+    
+        const stars = document.querySelectorAll('#star-rating span');
+        const form = document.getElementById('commentForm');
+        const commentList = document.getElementById('commentList');
+        const averageRatingDisplay = document.getElementById('averageRating');
+    
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                selectedRating = parseInt(this.getAttribute('data-star'));
+                updateStars(selectedRating);
+            });
+        });
+    
+        function updateStars(rating) {
+            stars.forEach(star => {
+                const val = parseInt(star.getAttribute('data-star'));
+                star.textContent = val <= rating ? '★' : '☆';
+            });
+        }
+    
+        function updateAverageRating(newRating) {
+            totalRatings += newRating;
+            numRatings++;
+            const avg = (totalRatings / numRatings).toFixed(1);
+            averageRatingDisplay.textContent = `⭐ Rating: ${avg}`;
+        }
+    
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const name = document.getElementById('name').value.trim();
+            const commentText = document.getElementById('comment').value.trim();
+    
+            if (!name || !commentText || selectedRating === 0) {
+                alert("Please fill out all fields and select a rating.");
+                return;
+            }
+    
+            const commentBlock = document.createElement('div');
+            commentBlock.style.marginTop = '15px';
+            commentBlock.style.padding = '15px';
+            commentBlock.style.border = '1px solid #ddd';
+            commentBlock.style.borderRadius = '8px';
+            commentBlock.style.background = '#f9f9f9';
+            commentBlock.style.position = 'relative';
+    
+            const starsDisplay = '★'.repeat(selectedRating) + '☆'.repeat(5 - selectedRating);
+    
+            commentBlock.innerHTML = `
+                <strong>${name}</strong> <span style="color: gold;">${starsDisplay}</span>
+                <p style="margin-top: 5px;">${commentText}</p>
+            `;
+    
+            const trashBin = document.createElement('div');
+            trashBin.classList.add('trash-bin');
+            trashBin.style.position = 'absolute';
+            trashBin.style.top = '10px';
+            trashBin.style.right = '10px';
+            trashBin.style.cursor = 'pointer';
+            trashBin.title = 'Delete Comment';
+            trashBin.innerHTML = `
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <rect class="lid" x="5" y="4" width="14" height="2" fill="red" rx="1" ry="1"/>
+                    <rect x="6" y="6" width="12" height="14" fill="red" rx="2"/>
+                </svg>
+            `;
+            commentBlock.appendChild(trashBin);
+            commentList.appendChild(commentBlock);
+    
+            const lid = trashBin.querySelector('.lid');
+            trashBin.addEventListener('click', () => {
+                lid.style.transformOrigin = 'center';
+                lid.style.transition = 'transform 0.4s ease';
+                lid.style.transform = 'rotate(-30deg) translateY(-2px)';
+                setTimeout(() => {
+                    commentBlock.remove();
+                }, 600);
+            });
+    
+            updateAverageRating(selectedRating);
+    
+            form.reset();
+            selectedRating = 0;
+            updateStars(0);
+        });
+    </script>
+</body>
+</html>

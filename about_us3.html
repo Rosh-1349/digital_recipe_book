@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body{
+            background: radial-gradient(circle, white, rgb(142, 240, 183));
+            min-height: 100vh; /* Ensure the background fills the whole viewport */
+            margin: 0;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0px;
+            background: radial-gradient(circle, white, rgb(223, 230, 225));
+            margin: 2px 5px 2px 5px;
+            padding: 0 0 0 8px;
+            border-radius: 10px;
+        }
+        nav ul{
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px; /* Add spacing between menu items */
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        .hero{
+            margin-top: 0px;
+            background-image: url("about_us_bg.jpg");
+            height: 250px;
+            background-size: cover;
+            color: #FDFDFD;
+            font-size: xx-large;
+            display: flex;
+            justify-content: space-around;
+            margin: 0px 5px 5px 5px;
+            padding: 0 0 0 8px;
+            border-radius: 10px;
+        }
+        .about-us{
+            display: flex;
+            margin-top: 50px;
+            background: radial-gradient(circle, white, rgb(223, 230, 225));            
+            margin: 10px 5px 2px 5px;
+            padding: 20px 0 20px 0;
+            border-radius: 15px;
+        }
+
+        .about-image{
+            padding-left: 20px;
+            margin-left: 20px;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .about-content{
+            margin-left: 30px;
+            font-size: 1em;
+        }
+
+        button{
+            background-color: rgb(70 94 194); color: aliceblue; height: 50px; font-weight: bold; border-radius: 10px; border-style: ridge;width: 180px;
+        }
+
+        button:hover{
+            background-color: rgb(50, 68, 139);
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        .about-us {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+            animation-delay: 0.3s;
+            animation-fill-mode: forwards;
+        }
+
+        .about-content {
+            animation: slideInLeft 1.2s ease-out forwards;
+        }
+
+        .about-image {
+            animation: slideInRight 1.2s ease-out forwards;
+        }
+
+        /* Optional button glow on hover */
+        button:hover {
+            background-color: rgb(50, 68, 139);
+            box-shadow: 0 0 10px rgba(50, 68, 139, 0.7);
+            transform: scale(1.05);
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><h2>Recipe Book</h2></div>
+        <nav>
+            <ul>
+                <li><a href="home3.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="sign_in3.html" onclick="signOut()">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About Us</h1>
+            <p>Our culinary journey</p>
+        </div>
+    </section>
+    <section class="about-us">
+        <div class="about-content">
+            <h2 style="color: gray;">Sharing the joy of Cooking</h2>
+            <p>In the Recipe Book, we believe that cooking should be an enjoyable and rewarding experience. Our mission is to provide you with a diverse collection of reliable and inspiring recipes, making it easy for you to create delicious meals at home. We are a community of food lovers dedicated to sharing our culinary knowledge and passion with you.</p>
+            <button onclick="location.href='menu.html'">Discover our Recipe</button>
+        </div>
+        <div class="about-image">
+            <img src="chef3.jpeg" alt="Chef or Kitchen Scene" height="300px" width="300px" style="border-radius: 5px;">
+        </div>
+    </section>
+    <script>
+        function signOut() {
+            localStorage.clear();
+            alert("You have been signed out.");
+            window.location.href = "sign_in3.html";
+        }
+    </script>
+</body>
+</html>
