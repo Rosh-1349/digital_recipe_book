@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Recipe Book</title>
+  <link rel="stylesheet" href="sign_in3.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="form-box">
+      <h2>Create Account</h2>
+      <p class="form-subtitle">Join <strong>Recipe Book</strong> today</p>
+      <form id="signUpForm">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="John Doe" required />
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Create a password" required />
+        </div>
+        <div class="input-group">
+          <label for="confirm">Confirm Password</label>
+          <input type="password" id="confirm" placeholder="Confirm your password" required />
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+        <p class="signup-text">
+          Already have an account? <a href="sign_in3.html">Sign in here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ✅ SIGN-UP LOGIC
+    document.getElementById("signUpForm")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const cpassword = document.getElementById("confirm").value.trim();
+
+      if (!name || !email || !password || !cpassword) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if (password !== cpassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      let isUsed = users.some(user => user.email === email);
+      if (isUsed) {
+        alert("This email is already registered.");
+        return;
+      }
+
+      users.push({ name, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Account created successfully!");
+      window.location.href = "sign_in3.html"; // ✅ redirect to sign-in
+    });
+  </script>
+</body>
+</html>
